@@ -5,7 +5,24 @@ import heroImg from './assets/hero.png'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState("0") //Starting it as a text (for concatenation so future numbers pressed are appended)
+
+  function handlesEqual() {
+    //1. Cut string at symbol (.split())
+    //2. Grab parts (first number then second number): pieces[0] and pieces[1]
+    //3. Convert from string to integers
+    //4. If + then add, if - then subtract, if x then multiply, if ÷ then divide
+    //5. Compute then display result
+
+    const pieces = count.split("+")
+
+    const first = Number(pieces[0])
+    const second = Number(pieces[1])
+
+    let result;
+    result = first + second;
+    setCount(String(result));
+    }
 
   return (
     <>
@@ -13,51 +30,43 @@ function App() {
         <p>{count}</p>
 
         <div>
-          <button>+</button>
-          <button>-</button>
+          <button onClick={() => setCount(count + "+")}>+</button>
+          <button onClick={() => setCount(count + "-")}>-</button>
         </div>
 
         <div>
-          <button>=</button>
+          <button onClick={handlesEqual}>=</button>
         </div>
 
         <div>
-          <button>÷</button>
-          <button>×</button>
+          <button onClick={() => setCount(count + "÷")}>÷</button>
+          <button onClick={() => setCount(count + "×")}>×</button>
         </div>
 
         <div>
-          <button onClick={() => setCount(1)}>1</button>
-          <button onClick={() => setCount(2)}>2</button>
-          <button onClick={() => setCount(3)}>3</button>
+          <button onClick={() => setCount(count + "1")}>1</button>
+          <button onClick={() => setCount(count + "2")}>2</button>
+          <button onClick={() => setCount(count + "3")}>3</button>
         </div>
 
         <div>
-          <button onClick={() => setCount(4)}>4</button>
-          <button onClick={() => setCount(5)}>5</button>
-          <button onClick={() => setCount(6)}>6</button>
+          <button onClick={() => setCount(count + "4")}>4</button>
+          <button onClick={() => setCount(count + "5")}>5</button>
+          <button onClick={() => setCount(count + "6")}>6</button>
         </div>
 
         <div>
-          <button onClick={() => setCount(7)}>7</button>
-          <button onClick={() => setCount(8)}>8</button>
-          <button onClick={() => setCount(9)}>9</button>
+          <button onClick={() => setCount(count + "7")}>7</button>
+          <button onClick={() => setCount(count + "8")}>8</button>
+          <button onClick={() => setCount(count + "9")}>9</button>
         </div>
 
         <div>
-          <button>.</button>
-          <button>0</button>
-          <button>%</button>
+          <button onClick={() => setCount(count + ".")}>.</button>
+          <button onClick={() => setCount(count + "0")}>0</button>
+          <button onClick={() => setCount(count + "%")}>%</button>
         </div>
       </div>
-
-      <button
-        type="button"
-        className="counter"
-        onClick={() => setCount((count) => count + 1)}
-      >
-        Count is {count}
-      </button>
     </>
   )
 }
