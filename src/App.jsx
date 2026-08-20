@@ -35,17 +35,29 @@ function App() {
       setCount(String(result));
     }
 
-    function handlesDigit(digit) {
-      //1. Button pressed sends parameter to function so it knows which digit was pressed
-      //2. If a digit was pressed first, then replace the 0 with the digit, if 0 was pressed, then it just basically does nothing - replaces w 0
-      //3. If a . or symbol is pressed, then glue it to the 0
+  function handlesDigit(digit) {
+    //1. Button pressed sends parameter to function so it knows which digit was pressed
+    //2. If a digit was pressed first, then replace the 0 with the digit, if 0 was pressed, then it just basically does nothing - replaces w 0
+    //3. If a . or symbol is pressed, then glue it to the 0
 
-      if (count == "0") {
-        setCount(digit)
-      } else {
-        setCount(count + digit)
-      }
+    if (count == "0") {
+      setCount(digit)
+    } else {
+      setCount(count + digit)
     }
+  }
+
+  function handlesDelete() {
+    //1. Will delete only the last character inputted
+    //2. If it is 0, then do nothing
+
+    if (count == "0" || count.length == 1)  {
+      setCount("0")
+    } else {
+      setCount(count.slice(0, count.length - 1))
+    }
+
+  }
 
   return (
     <>
@@ -53,12 +65,17 @@ function App() {
         <p>{count}</p>
 
         <div>
-          <button onClick={() => setCount(count + "+")}>+</button>
-          <button onClick={() => setCount(count + "-")}>-</button>
+          <button onClick={handlesEqual}>=</button>
         </div>
 
         <div>
-          <button onClick={handlesEqual}>=</button>
+          <button onClick={() => setCount("0")}>𖹭</button>
+          <button onClick={handlesDelete}>⬅</button>
+        </div>
+
+        <div>
+          <button onClick={() => setCount(count + "+")}>+</button>
+          <button onClick={() => setCount(count + "-")}>-</button>
         </div>
 
         <div>
