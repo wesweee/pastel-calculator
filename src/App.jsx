@@ -61,50 +61,50 @@ function App() {
 
   return (
     <>
-      <div>
-        <p>{count}</p>
+      <div className = "calculator">
+        <p className = "display">{count}</p>
 
-        <div>
-          <button onClick={handlesEqual}>=</button>
+        <div className = "row">
+          <button onClick = {handlesEqual}>=</button>
         </div>
 
-        <div>
-          <button onClick={() => setCount("0")}>𖹭</button>
-          <button onClick={handlesDelete}>⬅</button>
+        <div className = "row">
+          <button onClick = {() => setCount("0")}>𖹭</button>
+          <button onClick = {handlesDelete}>⬅</button>
         </div>
 
-        <div>
-          <button onClick={() => setCount(count + "+")}>+</button>
-          <button onClick={() => setCount(count + "-")}>-</button>
+        <div className = "row">
+          <button onClick = {() => setCount(count + "+")}>+</button>
+          <button onClick = {() => setCount(count + "-")}>-</button>
         </div>
 
-        <div>
-          <button onClick={() => setCount(count + "÷")}>÷</button>
-          <button onClick={() => setCount(count + "×")}>×</button>
+        <div className = "row">
+          <button onClick = {() => setCount(count + "÷")}>÷</button>
+          <button onClick = {() => setCount(count + "×")}>×</button>
         </div>
 
-        <div>
-          <button onClick={() => handlesDigit("1")}>1</button>
-          <button onClick={() => handlesDigit("2")}>2</button>
-          <button onClick={() => handlesDigit("3")}>3</button>
+        <div className = "row">
+          <button onClick = {() => handlesDigit("1")}>1</button>
+          <button onClick = {() => handlesDigit("2")}>2</button>
+          <button onClick = {() => handlesDigit("3")}>3</button>
         </div>
 
-        <div>
-          <button onClick={() => handlesDigit("4")}>4</button>
-          <button onClick={() => handlesDigit("5")}>5</button>
-          <button onClick={() => handlesDigit("6")}>6</button>
+        <div className = "row">
+          <button onClick = {() => handlesDigit("4")}>4</button>
+          <button onClick = {() => handlesDigit("5")}>5</button>
+          <button onClick = {() => handlesDigit("6")}>6</button>
         </div>
 
-        <div>
-          <button onClick={() => handlesDigit("7")}>7</button>
-          <button onClick={() => handlesDigit("8")}>8</button>
-          <button onClick={() => handlesDigit("9")}>9</button>
-        </div>
+        <div className = "row">
+          <button onClick = {() => handlesDigit("7")}>7</button>
+          <button onClick = {() => handlesDigit("8")}>8</button>
+          <button onClick = {() => handlesDigit("9")}>9</button>
+        </div> 
 
-        <div>
-          <button onClick={() => setCount(count + ".")}>.</button>
-          <button onClick={() => handlesDigit("0")}>0</button>
-          <button onClick={() => setCount(count + "%")}>%</button>
+        <div className = "row">
+          <button onClick = {() => setCount(count + ".")}>.</button>
+          <button onClick = {() => handlesDigit("0")}>0</button>
+          <button onClick = {() => setCount(count + "%")}>%</button>
         </div>
       </div>
     </>
