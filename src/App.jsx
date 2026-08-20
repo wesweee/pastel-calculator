@@ -35,6 +35,18 @@ function App() {
     setCount(String(result));
     }
 
+    function handlesDigit(digit) {
+      //1. Button pressed sends parameter to function so it knows which digit was pressed
+      //2. If a digit was pressed first, then replace the 0 with the digit, if 0 was pressed, then it just basically does nothing - replaces w 0
+      //3. If a . or symbol is pressed, then glue it to the 0
+
+      if (count == "0") {
+        setCount(digit)
+      } else {
+        setCount(count + digit)
+      }
+    }
+
   return (
     <>
       <div>
@@ -55,26 +67,26 @@ function App() {
         </div>
 
         <div>
-          <button onClick={() => setCount(count + "1")}>1</button>
-          <button onClick={() => setCount(count + "2")}>2</button>
-          <button onClick={() => setCount(count + "3")}>3</button>
+          <button onClick={() => handlesDigit("1")}>1</button>
+          <button onClick={() => handlesDigit("2")}>2</button>
+          <button onClick={() => handlesDigit("3")}>3</button>
         </div>
 
         <div>
-          <button onClick={() => setCount(count + "4")}>4</button>
-          <button onClick={() => setCount(count + "5")}>5</button>
-          <button onClick={() => setCount(count + "6")}>6</button>
+          <button onClick={() => handlesDigit("4")}>4</button>
+          <button onClick={() => handlesDigit("5")}>5</button>
+          <button onClick={() => handlesDigit("6")}>6</button>
         </div>
 
         <div>
-          <button onClick={() => setCount(count + "7")}>7</button>
-          <button onClick={() => setCount(count + "8")}>8</button>
-          <button onClick={() => setCount(count + "9")}>9</button>
+          <button onClick={() => handlesDigit("7")}>7</button>
+          <button onClick={() => handlesDigit("8")}>8</button>
+          <button onClick={() => handlesDigit("9")}>9</button>
         </div>
 
         <div>
           <button onClick={() => setCount(count + ".")}>.</button>
-          <button onClick={() => setCount(count + "0")}>0</button>
+          <button onClick={() => handlesDigit("0")}>0</button>
           <button onClick={() => setCount(count + "%")}>%</button>
         </div>
       </div>
