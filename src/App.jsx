@@ -12,7 +12,8 @@ function App() {
     //5. Compute then display result
 
     const symbols = ["+", "-", "×", "÷"];
-    let pieces, result, first, second;
+    let pieces, first, second;
+    let result = count;
 
     for (let i = 0; i < symbols.length; i++) {
       if (count.includes(symbols[i]))  {
@@ -26,13 +27,12 @@ function App() {
           result = first - second;
         } else if (symbols[i] == "×") {
           result = first * second;
-        } else {
+        } else if (symbols[i] == "÷") {
           result = first / second;
-        }
+        } 
       }
-    }
-
-    setCount(String(result));
+      }
+      setCount(String(result));
     }
 
     function handlesDigit(digit) {
