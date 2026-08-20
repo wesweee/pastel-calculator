@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState("0") //Starting it as a text (for concatenation so future numbers pressed are appended)
+  const [count, setCount] = useState("0") //Starting it as a text (for concatenation so future numbers pressed are appended
 
   function handlesEqual() {
     //1. Cut string at symbol (.split())
@@ -11,13 +11,27 @@ function App() {
     //4. If + then add, if - then subtract, if x then multiply, if ÷ then divide
     //5. Compute then display result
 
-    const pieces = count.split("+")
+    const symbols = ["+", "-", "×", "÷"];
+    let pieces, result, first, second;
 
-    const first = Number(pieces[0])
-    const second = Number(pieces[1])
+    for (let i = 0; i < symbols.length; i++) {
+      if (count.includes(symbols[i]))  {
+        pieces = count.split(symbols[i])
+        first = Number(pieces[0])
+        second = Number(pieces[1])
 
-    let result;
-    result = first + second;
+        if (symbols[i] == "+") {
+          result = first + second;
+        } else if (symbols[i] == "-") {
+          result = first - second;
+        } else if (symbols[i] == "×") {
+          result = first * second;
+        } else {
+          result = first / second;
+        }
+      }
+    }
+
     setCount(String(result));
     }
 
